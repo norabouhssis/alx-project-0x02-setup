@@ -25,7 +25,8 @@ const Users: React.FC<UsersProps> = ({ users }) => (
   </>
 );
 
-export const getStaticProps = async () => {
+// getStaticProps() for static generation
+export async function getStaticProps() {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
   const users = await res.json();
   return {
@@ -33,6 +34,6 @@ export const getStaticProps = async () => {
       users,
     },
   };
-};
+}
 
 export default Users;
